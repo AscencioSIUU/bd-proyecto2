@@ -1,14 +1,39 @@
-using System;
+﻿// See https://aka.ms/new-console-template for more information
+using Npgsql;
+using System.Threading;
 
-class Program
-{
+const string CONNECTION_STRING = "Host=localhost;Port=5432;Database=testing;UserId=postgres;Password=p1aE7Eitr";
+const int TASK_AMOUNT = 20;
 
-     static async Task Main(string[] args)
-     {
-          Console.WriteLine("Simulador de concurrencia con reservas");
-          Console.WriteLine("Nivel de aislamiento:\n 1: Read Committed\n 2: Repeatable Read\n 3: Serializable\n");
-          var isolationInput = Console.ReadLine();
-          Console.WriteLine("Ingresa la cantidad de concurrencia: (5, 10, 20, 30) \n");
-          int concurrenceInput = int.Parse(Console.ReadLine() ?? "5");
-     }
+
+
+void CreateDatabaseConnection(string name){
+    using NpgsqlConnection connection = new NpgsqlConnection(CONNECTION_STRING);
+    connection.Open();
+
+    using NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO customer(name) VALUES ($1);", connection);
+    cmd.Parameters.AddWithValue(name);
+
+    using NpgsqlDataReader reader = cmd.ExecuteReader();
+    cmd.ExecuteNonQueryAsync();
 }
+
+void LogThread(int i){
+    Console.WriteLine($"Start thread {i}");
+    CreateDatabaseConnection($"thread {i}");
+    Console.WriteLine($"End thread {i}");
+}
+
+
+
+Console.WriteLine("DB concurreny simulation");
+Console.WriteLine("Press ENTER to start");
+Console.ReadLine();
+
+for(int i = 0; i < TASK_AMOUNT; i++){
+    int copy = i;
+    Task.Run( () => { LogThread(copy); });
+}
+
+
+Console.ReadLine();

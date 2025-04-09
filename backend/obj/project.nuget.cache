@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "jZWZ5MmDSR8=",
+  "success": true,
+  "projectFilePath": "C:\\UVG\\2025\\BasesDatos\\bd-proyecto2\\backend\\TestingDBConnection.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hugod\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\hugod\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\hugod\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
