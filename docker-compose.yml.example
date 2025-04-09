@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: proyect2_BD
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: p1aE7Eitr
+    volumes:
+      - ./bd/ddl.sql:/docker-entrypoint-initdb.d/01-ddl.sql
+      - ./bd/data.sql:/docker-entrypoint-initdb.d/02-data.sql
+    ports:
+      - "NUMERO_DE_TU_PUERTO:5432"
+
+  app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    environment:
+      # cadena de conexión dentro del contenedor
+      CONNECTION_STRING: "Host=db;Port=5432;Database=proyect2_BD;UserId=postgres;Password=p1aE7Eitr"
+    command: >
+      bash -c "dotnet TestingDBConnection.dll"
