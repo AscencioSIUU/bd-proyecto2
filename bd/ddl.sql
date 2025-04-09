@@ -1,4 +1,4 @@
-CREATE DATABASE proyecto_2;
+
 
 DROP TABLE IF EXISTS reservation_seats;
 DROP TABLE IF EXISTS seat;
@@ -38,19 +38,20 @@ CREATE TABLE "user" (
 
 CREATE TABLE "reservation" (
   "id" SERIAL PRIMARY KEY,
-  "date" TIMESTAMP NOT NULL,
+  "date" TIMESTAMP NOT NULL DEFAULT now(),
   "event_id" INT REFERENCES "event" ("id") NOT NULL,
-  "users_id" INT REFERENCES "user" ("id") NOT NULL
+  "user_id" INT REFERENCES "user" ("id") NOT NULL
 );
 
 CREATE TABLE "seat" (
   "id" SERIAL PRIMARY KEY,
   "code" VARCHAR(100) NOT NULL,
-  "event_id" INT REFERENCES "event" ("id") NOT NULL
+  "event_id" INT REFERENCES "event" ("id") NOT NULL,
+  "is_available" BOOLEAN DEFAULT true
 );
 
 CREATE TABLE "reservation_seats" (
   "id" SERIAL PRIMARY KEY,
   "seat_id" INT REFERENCES "seat" ("id") NOT NULL,
-  "revervation_id" INT REFERENCES "reservation" ("id") NOT NULL
+  "reservation_id" INT REFERENCES "reservation" NOT NULL
 );

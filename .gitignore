@@ -1,0 +1,35 @@
+# .gitignore
+
+# Visual Studio / Rider
+.vs/
+*.user
+*.suo
+*.userprefs
+*.csproj.user
+*.pidb
+*.sln.docstates
+.vscode/
+
+# Build outputs
+bin/
+obj/
+
+# Rider
+.idea/
+
+# DotNet Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.yml
+.env           # si usas un archivo de variables de entorno
+

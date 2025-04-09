@@ -398,7 +398,7 @@ INSERT INTO "user" ("name", "email", "birthdate", "phone_number") VALUES
 ('Cristina Carrasco', 'cristina.carrasco200@example.com', '1991-01-15', '5551230200');
 
 -- DATA PARA RESERVACIONES
-INSERT INTO "reservation" ("date", "event_id", "users_id") VALUES
+INSERT INTO "reservation" ("date", "event_id", "user_id") VALUES
 ('2025-03-15 14:32:00', 45, 32),
 ('2025-04-10 09:20:00', 88, 5),
 ('2025-02-25 16:45:00', 12, 77),
