@@ -97,15 +97,15 @@ Los resultados de las pruebas de concurrencia se mostraran en un formato parecid
 ## Entregables
 
 - Diagrama Entidad-Relación (ER).
-- Script SQL para la creación de la base de datos (`ddl.sql`)[cite: 7, 8].
-- Script SQL para la carga de datos de prueba (`data.sql`)[cite: 9, 10].
-- Código fuente del programa [enlace al repositorio de GitHub](cite: 11, 12, 13, 14, 15).
+- Script SQL para la creación de la base de datos (`ddl.sql`).
+- Script SQL para la carga de datos de prueba (`data.sql`).
+- Código fuente del programa [enlace al repositorio de GitHub].
 - Manual de uso para ejecutar la simulación.
-- Informe con los resultados de las pruebas[cite: 15, 16, 17, 18].
-- Informe en PDF con análisis y reflexiones[cite: 19, 20, 21, 22].
+- Informe con los resultados de las pruebas.
+- Informe en PDF con análisis y reflexiones.
 
 ## Autores
 
-- \[Esteban Enrique Cárcamo Urízar]
-- \[Hugo Daniel Barillas]
-- \[Ernesto David Ascencio]
+- \Esteban Enrique Cárcamo Urízar
+- \Hugo Daniel Barillas
+- \Ernesto David Ascencio
