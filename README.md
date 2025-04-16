@@ -106,6 +106,6 @@ Los resultados de las pruebas de concurrencia se mostraran en un formato parecid
 
 ## Autores
 
-- \[Nombre del Estudiante 1]
-- \[Nombre del Estudiante 2]
-- \[Nombre del Estudiante 3]
+- \[Esteban Enrique Cárcamo Urízar]
+- \[Hugo Daniel Barillas]
+- \[Ernesto David Ascencio]
