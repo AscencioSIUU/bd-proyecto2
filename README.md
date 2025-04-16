@@ -14,8 +14,8 @@ Este proyecto desarrolla un sistema que simula reservas concurrentes en un event
 │   ├── obj
 │   └── Program.cs
 └── bd
-├── data.sql
-└── ddl.sql
+    ├── data.sql
+    └── ddl.sql
 
 ```
 
@@ -28,52 +28,23 @@ Este proyecto desarrolla un sistema que simula reservas concurrentes en un event
 ## Configuración de la Base de Datos Local
 
 1. Instalar PostgreSQL.
-2. Crear una base de datos llamada `events`.
-3. Ejecutar el script `bd/ddl.sql` para crear las tablas:
+2. Crear una base de datos llamada `proyect2_DB`.
+3. Ejecutar el script `bd/ddl.sql` para crear las tablas
+4. Ejecutar el script `bd/data.sql` para insertar datos de prueba
 
-   ```sql
-   --  Ejemplo de contenido de ddl.sql
-   CREATE TABLE events (
-       id SERIAL PRIMARY KEY,
-       name VARCHAR(255) NOT NULL
-   );
-
-   CREATE TABLE seats (
-       id SERIAL PRIMARY KEY,
-       event_id INT REFERENCES events(id),
-       seat_number INT NOT NULL,
-       UNIQUE(event_id, seat_number)
-   );
-
-   CREATE TABLE reservations (
-       id SERIAL PRIMARY KEY,
-       seat_id INT REFERENCES seats(id),
-       reservation_time TIMESTAMP NOT NULL
-   );
-   ```
-
-4. Ejecutar el script `bd/data.sql` para insertar datos de prueba:
-
-   ```sql
-   --  Ejemplo de contenido de data.sql
-   INSERT INTO events (name) VALUES ('Concierto de Rock');
-
-   INSERT INTO seats (event_id, seat_number) VALUES (1, 1), (1, 2), (1, 3), (1, 4), (1, 5);
-
-   INSERT INTO reservations (seat_id, reservation_time) VALUES (1, NOW()), (2, NOW());
-   ```
 
 ## Ejecución Local
 
 1. Asegurarse de tener instalado el .NET SDK 9.0.
 2. Navegar al directorio `backend`.
-3. Restaurar las dependencias:
+3. En el Program.cs cambiar el CONNECTION_STRING, con las credenciales de tu preferencia
+4. Restaurar las dependencias:
 
    ```bash
    dotnet restore
    ```
 
-4. Ejecutar la aplicación:
+5. Ejecutar la aplicación:
 
    ```bash
    dotnet build
@@ -100,12 +71,12 @@ Los resultados de las pruebas de concurrencia se mostraran en un formato parecid
 - Script SQL para la creación de la base de datos (`ddl.sql`).
 - Script SQL para la carga de datos de prueba (`data.sql`).
 - Código fuente del programa [enlace al repositorio de GitHub].
-- Manual de uso para ejecutar la simulación.
+- Manual de uso para ejecutar la simulación (este readme).
 - Informe con los resultados de las pruebas.
 - Informe en PDF con análisis y reflexiones.
 
 ## Autores
 
-- \Esteban Enrique Cárcamo Urízar
-- \Hugo Daniel Barillas
-- \Ernesto David Ascencio
+- Esteban Enrique Cárcamo Urízar
+- Hugo Daniel Barillas
+- Ernesto David Ascencio
